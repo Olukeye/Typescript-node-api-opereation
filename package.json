@@ -1,0 +1,40 @@
+{
+  "name": "TypeScript-crud",
+  "version": "1.0.0",
+  "main": "server.js",
+  "description": " Crud Api",
+  "license": "MIT",
+  "scripts": {
+    "start": "src/server.js",
+    "server": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^15.0.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.2",
+    "express-jwt": "^6.1.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^5.0.2",
+    "inversify": "^6.0.1",
+    "inversify-express-utils": "^6.4.3",
+    "inversify-logger-middleware": "^3.1.0",
+    "joi-objectid": "^4.0.2",
+    "moment": "^2.29.1",
+    "mongodb": "^4.3.1",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@types/bcrypt": "^5.0.0",
+    "@types/compression": "^1.7.2",
+    "@types/errorhandler": "^1.5.0",
+    "@types/hapi__joi": "^17.1.8",
+    "@types/helmet": "^4.0.0",
+    "@types/mongodb": "^4.0.7"
+  }
+}
