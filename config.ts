@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 const isDev = process.env.NODE_ENV === 'development' ? true : false;
