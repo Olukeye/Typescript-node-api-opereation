@@ -1,16 +1,17 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
-const isDev = process.env.NODE_ENV === 'development' ? true : false;
-const isProd = process.env.NODE_ENV === 'production' ? true : false;
+const isDev = process.env.NODE_ENV === "development" ? true : false;
+const isProd = process.env.NODE_ENV === "production" ? true : false;
 
 export default {
   appKey: {
-    name: 'AUTH_API',
-    port: process.env.PORT || 4010,
-    env: process.env.NODE_ENV || 'development',
+    name: "AUTH_API",
+    port: process.env.PORT || 4040,
+    env: process.env.NODE_ENV || "development",
     isDev,
     isProd,
+    hostname: process.env.HOSTNAME
   },
   jwt: {
     secret: process.env.JWT_SECRET,
@@ -20,7 +21,7 @@ export default {
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      keepAlive: true,
+      // keepAlive: true,
       // reconnectTries: 3600, // Never stop trying to reconnect
       // reconnectInterval: 500, // Reconnect every 500ms
       poolSize: 10, // Maintain up to 10 socket connections
@@ -31,8 +32,7 @@ export default {
       // family: 4, // Use IPv4, skip trying IPv6
     },
   },
-  appLog: {
-    logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
-  },
-  bugsnag: process.env.BUGSNAG,
+  // add_salt: process.env.SALT_FACTOR,
+  // agent: process.env.USER_AGENT,
+  // access_token_expire: process.env.ACCESS_TOKEN_TIME,
 };

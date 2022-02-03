@@ -1,21 +1,19 @@
 import express from "express";
 import log from "./middleware/logger";
-import dotenv from "dotenv";
-import config from "../config";
+import config from "./config/default";
 import connectDB from "./db/connection";
 // import routes from "./router/routes";
-
 const app = express();
 
-dotenv.config();
 
 //  config to receive for data
 app.use(express.json());
 
-const hostname: string = config.get("hostname");
-const port: number = config.get("appKey.port");
+const { appKey } = config;
+const { port, hostname } = appKey;
 
-app.listen(port, hostname, () => {
+
+app.listen(() => {
   log.info(`server is running on http://${hostname}:${port}`);
 
   connectDB();
