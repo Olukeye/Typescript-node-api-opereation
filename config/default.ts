@@ -6,13 +6,12 @@ const isProd = process.env.NODE_ENV === "production" ? true : false;
 
 export default {
   appKey: {
-    name: "AUTH_API",
     port: process.env.PORT || 4040,
     env: process.env.NODE_ENV || "development",
     isDev,
     isProd,
-    hostname: process.env.HOSTNAME
   },
+  hostname: process.env.HOSTNAME,
   jwt: {
     secret: process.env.JWT_SECRET,
   },
@@ -21,9 +20,9 @@ export default {
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      // keepAlive: true,
-      // reconnectTries: 3600, // Never stop trying to reconnect
-      // reconnectInterval: 500, // Reconnect every 500ms
+      keepAlive: true,
+      reconnectTries: 3600, // Never stop trying to reconnect
+      reconnectInterval: 500, // Reconnect every 500ms
       poolSize: 10, // Maintain up to 10 socket connections
       // If not connected, return errors immediately rather than waiting for reconnect
       bufferMaxEntries: 0,

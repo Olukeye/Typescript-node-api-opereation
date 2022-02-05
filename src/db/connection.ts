@@ -4,7 +4,7 @@ import log from '../middleware/logger';
 
 
 const connectDB = async () => {
-    const mongo = config.get("mongo.url") as string;
+    const mongo = config.get("mongo.url") as string
     try{
         await mongoose.connect(mongo);
         log.info('MongoDB connected..');
