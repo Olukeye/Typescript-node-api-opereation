@@ -31,6 +31,10 @@ export default {
       // family: 4, // Use IPv4, skip trying IPv6
     },
   },
+  appLog: {
+    logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
+  },
+  bugsnag: process.env.BUGSNAG,
   // add_salt: process.env.SALT_FACTOR,
   // agent: process.env.USER_AGENT,
   // access_token_expire: process.env.ACCESS_TOKEN_TIME,

@@ -8,8 +8,8 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import Bugsnag from '@bugsnag/js';
 import BugsnagPluginExpress from '@bugsnag/plugin-express';
 
-import container from './inversify.config';
-import config from './config';
+import container from './inversify';
+import config from 'config';
 
 Bugsnag.start({
   apiKey: config.bugsnag,
@@ -24,7 +24,6 @@ function configureApp(app) {
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());
   app.use(helmet());
-  app.use(cors());
   app.use(mongoSanitize());
   if (config.appKey.isProd) {
     app.use(bugsnagMidddleware.requestHandler);

@@ -10,6 +10,10 @@
     "dev": "yarn server"
   },
   "dependencies": {
+    "@bugsnag/js": "7.5.4",
+    "@bugsnag/plugin-express": "^7.16.1",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express-jwt": "^6.0.4",
     "@types/pino-pretty": "^4.7.4",
     "@types/yup": "^0.29.13",
     "bcrypt": "^5.0.1",
