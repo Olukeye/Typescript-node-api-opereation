@@ -21,8 +21,6 @@ export default {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       keepAlive: true,
-      reconnectTries: 3600, // Never stop trying to reconnect
-      reconnectInterval: 500, // Reconnect every 500ms
       poolSize: 10, // Maintain up to 10 socket connections
       // If not connected, return errors immediately rather than waiting for reconnect
       bufferMaxEntries: 0,
@@ -35,7 +33,4 @@ export default {
     logs: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
   },
   bugsnag: process.env.BUGSNAG,
-  // add_salt: process.env.SALT_FACTOR,
-  // agent: process.env.USER_AGENT,
-  // access_token_expire: process.env.ACCESS_TOKEN_TIME,
 };
