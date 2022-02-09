@@ -11,10 +11,10 @@ import BugsnagPluginExpress from '@bugsnag/plugin-express';
 import container from './inversify';
 import config from 'config';
 
-Bugsnag.start({
-  apiKey: config.bugsnag,
-  plugins: [BugsnagPluginExpress],
-});
+// Bugsnag.start({
+//   apiKey: config.bugsnag,
+//   plugins: [BugsnagPluginExpress],
+// });
 
 const bugsnagMidddleware = Bugsnag.getPlugin('express');
 
@@ -25,9 +25,9 @@ function configureApp(app) {
   app.use(cookieParser());
   app.use(helmet());
   app.use(mongoSanitize());
-  if (config.appKey.isProd) {
-    app.use(bugsnagMidddleware.requestHandler);
-  }
+  // if (config.appKey.isProd) {
+  //   app.use(bugsnagMidddleware.requestHandler);
+  // }
 
   app.set('trust proxy', 1); // trust first proxy
 
