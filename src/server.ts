@@ -1,11 +1,11 @@
-import express from "express";
 import log from "./middleware/logger";
 import config from "../config/default";
-import connectDB from "./db/connection";
+import {MongoDBConnection} from "./db/connection";
+// import initCollections from './collections';
 // import routes from "./router/routes";
 import app from  './app';
 
-const { appKey} = config;
+const { appKey, mongo} = config;
 const { port, hostname } = appKey;
 
 // const hostname: string = config.get("hostname");
@@ -18,7 +18,17 @@ const { port, hostname } = appKey;
 //   // routes(app);
 // });
 
-app.build().listen(port).on('error', onError).on('listening', onListening);
+MongoDBConnection.connect(mongo.url)
+  .then((database) => {
+    // at this point create your collections, they are all promises and should be in a promises.all
+    // initCollections(database);
+    log.info('connection to database successful');
+    app.build().listen(port).on('error', onError).on('listening', onListening);
+  })
+  .catch((error) => {
+    log.error(error.message);
+  });
+
 function onError(error: any) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -38,8 +48,7 @@ function onError(error: any) {
       throw error;
   }
 }
-function onListening() {
-  log.info(`server is running on http://${hostname}:${port}`);
 
-  connectDB();
+function onListening() {
+  log.info(`Server listening on http://${hostname}:${port}`);
 }

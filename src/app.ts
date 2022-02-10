@@ -36,36 +36,11 @@ function configureApp(app) {
       // these paths are excluded from authentication
       path: [
         { url: '/customers/', methods: ['POST'] },
-        { url: '/vendors/', methods: ['POST'] },
-        { url: '/admins/', methods: ['POST'] },
-        { url: '/restaurants/', methods: ['GET', 'POST'] },
-        { url: /restaurants\/.*/, methods: ['GET'] },
-        { url: '/faqs/', methods: ['GET'] },
-        { url: /^\/faqs\/.*/, methods: ['GET'] },
-        { url: '/menus/', methods: ['GET'] },
-        { url: /^\/menus\/.*/, methods: ['GET'] },
-        { url: '/photos/', methods: ['GET'] },
-        { url: /^\/photos\/.*/, methods: ['GET'] },
-        { url: '/reviews/', methods: ['GET'] },
-        { url: /^\/reviews\/.*/, methods: ['GET'] },
-
         { url: '/login/admin', methods: ['POST'] },
         { url: '/login/vendor', methods: ['POST'] },
         { url: '/login/vendor-token', methods: ['POST'] },
         { url: '/login/customer', methods: ['POST'] },
-
-        { url: /password-reset\/admin/i, methods: ['GET'] },
-        { url: /password-reset\/customer/i, methods: ['GET'] },
-        { url: /password-reset\/vendor/i, methods: ['GET'] },
-        { url: '/password-reset/admin', methods: ['POST'] },
-        { url: '/password-reset/customer', methods: ['POST'] },
-        { url: '/password-reset/vendor', methods: ['POST'] },
-
-        { url: /verify\/vendor/i, methods: ['GET'] },
-        { url: /verify\/customer/i, methods: ['GET'] },
-        { url: /verify\/resend-verification\/vendor/i, methods: ['GET'] },
-        { url: /verify\/resend-verification\/customer/i, methods: ['GET'] },
-
+        
         { url: /oneTimePassCodes/i, methods: ['GET'] },
       ],
     }),
