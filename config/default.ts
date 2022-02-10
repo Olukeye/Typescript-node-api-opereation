@@ -10,8 +10,8 @@ export default {
     env: process.env.NODE_ENV || "development",
     isDev,
     isProd,
+    hostname: process.env.HOSTNAME,
   },
-  hostname: process.env.HOSTNAME,
   jwt: {
     secret: process.env.JWT_SECRET,
   },

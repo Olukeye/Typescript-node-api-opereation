@@ -1,13 +1,15 @@
 import express from "express";
 import log from "./middleware/logger";
-import config from "config";
+import config from "../config/default";
 import connectDB from "./db/connection";
 // import routes from "./router/routes";
 import app from  './app';
 
+const { appKey} = config;
+const { port, hostname } = appKey;
 
-const hostname: string = config.get("hostname");
-const port: number = config.get("appKey.port");
+// const hostname: string = config.get("hostname");
+// const port: number = config.get("appKey.port");
 
 // app.onListeng(port, hostname, () => {
 //   log.info(`server is running on http://${hostname}:${port}`);
